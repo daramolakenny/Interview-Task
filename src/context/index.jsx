@@ -8,9 +8,11 @@ export default function GlobalState({ children }) {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
 
+    const KEY = import.meta.env.VITE_API_KEY;
+
     async function fetchData() {
         try {
-            const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+            const res = await fetch(KEY);
             const data = await res.json();
             setData(data);
             setFilteredData(data);
