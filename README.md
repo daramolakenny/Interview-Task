@@ -1,11 +1,27 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- The main feature of this project is data fetching. Users can search and filter the data by title text.
 
-Pertaining to the project
-To run this project kindly "npm install" all the dependencies and the command to run the project is "npm run dev"
+## Technologies Used
+
+- React
+- Vite
+- ESLint
+- TailwindCSS
+- PostCSS
+
+## Getting Started
+
+### Prerequisites
+
+- Ensure you have Node.js installed on your machine.
+- After all the dependencies have been installed using:
+
+  ```bash
+  npm install
+
+  To run the project in your browser, execute:
+  ```bash
+  npm run dev
