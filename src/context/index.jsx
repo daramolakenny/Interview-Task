@@ -4,15 +4,13 @@ export const GlobalContext = createContext(null);
 
 export default function GlobalState({ children }) {
     const [searchParams, setSearchParams] = useState("");
-    const [loading, setLoading] = useState(true); // Set loading to true initially
+    const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]); // State for filtered data
-
-    const KEY = import.meta.env.VITE_API_KEY;
+    const [filteredData, setFilteredData] = useState([]);
 
     async function fetchData() {
         try {
-            const res = await fetch(KEY);
+            const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
             const data = await res.json();
             setData(data);
             setFilteredData(data);
@@ -28,9 +26,8 @@ export default function GlobalState({ children }) {
     }, []);
 
     useEffect(() => {
-        // Filter data based on searchParams
         const filtered = data.filter(item =>
-            item.title.toLowerCase().includes(searchParams.toLowerCase())
+            item.title && item.title.includes(searchParams)
         );
         setFilteredData(filtered);
     }, [searchParams, data]);
@@ -40,7 +37,7 @@ export default function GlobalState({ children }) {
             value={{
                 searchParams,
                 loading,
-                filteredData,
+                filteredData, // Provide filtered data to be displayed
                 setSearchParams,
             }}
         >
